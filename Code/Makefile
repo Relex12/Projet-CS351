@@ -4,7 +4,7 @@ all:
 	echo "Pour les .o : decodage.o,registre.o ou memoire.o"
 
 clean :
-	rm memoire decode registre *.o
+	rm main memoire decode registre *.o
 
 
 # exécutables de test
@@ -30,5 +30,5 @@ registre.o : registre.c registre.h
 
 
 # main
-main : main.c decodage.o memoire.o registre.o
-	gcc -g -Wall decodage.o main.c memoire.o registre.o -o main
+main : main.c memoire.o registre.o
+	gcc -g -Wall main.c memoire.o registre.o -o main
