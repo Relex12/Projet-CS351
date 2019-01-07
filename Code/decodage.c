@@ -1,4 +1,3 @@
-
 #include "decodage.h"
 
 void convertionBinaire(char * nombre,char * sortie, int taille){	//fonction convertion d'une chaine de caractère avec un chiffre décimal et qui la convertit en une chaine de caractère binaire
@@ -258,6 +257,8 @@ void decodage(char * fentree, char * fsortie){
 	printf("Fichier entierement traduit sans problème\n");	//vérifie qu'on est arriver au bout
 }
 
+#ifdef TESTS
 int main(int argc, char* argv[]){
 		decodage(argv[1],argv[2]);
 }
+#endif

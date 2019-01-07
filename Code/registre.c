@@ -1,12 +1,20 @@
 #include "registre.h"
 
+char* conversion[35] = {"zero", "at", "v0", "v1", "a0", "a1", "a2", "a3", "t0", "t1", "t2", "t3", "t4", "t5", "t6", "t7", "t0", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "t8", "t9", "k0", "k1", "gr", "sp", "fp", "ra", "pc", "hi", "lo"};
+
+int registre[32];
+int PC;			// la valeur correspondante utilisée sera 32
+int HI;			// la valeur correspondante utilisée sera 33
+int LO;			// la valeur correspondante utilisée sera 34
+
+
 int lectureReg (int registreVal)
 {
 	if (registreVal > 34) return -1;	// plus grand que le nombre de registres
 	else if(registreVal < 0) return -1;	// n'a pas de sens
-	else if(registreVal = 34) return LO;
-	else if(registreVal = 33) return HI;
-	else if(registreVal = 32) return PC;
+	else if(registreVal == 34) return LO;
+	else if(registreVal == 33) return HI;
+	else if(registreVal == 32) return PC;
 	else return registre[registreVal];
 }
 
@@ -14,9 +22,9 @@ void ecritureReg (int registreVal, int data)
 {
 	if (registreVal > 34) printf("ACTION IMPOSSIBLE (>34)\n");	// plus grand que le nombre de registres
 	else if(registreVal < 0) printf("ACTION IMPOSSIBLE (<0)\n");	// n'a pas de sens
-	else if(registreVal = 34) LO = data;
-	else if(registreVal = 33) HI = data;
-	else if(registreVal = 32) PC = data;
+	else if(registreVal == 34) LO = data;
+	else if(registreVal == 33) HI = data;
+	else if(registreVal == 32) PC = data;
 	else registre[registreVal] = data ;
 }
 
